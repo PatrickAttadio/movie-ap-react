@@ -1,18 +1,25 @@
 import './App.css'
 import { MovieCard } from './components/MovieCard'
 import { getMovies } from './api/movies'
+import { MovieType } from './types/movieTypes'
 
 function App() {
-  const movieMock = getMovies();
+  let movies: MovieType[] = [];
+  const movieMock = async () => {
+    movies = await getMovies();
+  }
+
+  movieMock();
   
   console.log("Sono nel componente App");
   return (
     <>
       <h1>Movie List</h1>
       {
-        movieMock.map((movie) => {
-          return <MovieCard key={movie.idMovie} movie={movie} /> 
+        movies ? movies.map((movie) => {
+          return <MovieCard key={movie.id} movie={movie} /> 
         })
+        : <h2>Caricamento in corso...</h2>
       }
     </>
   )

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MovieType } from '../types/MovieTypes';
+import { MovieType } from '../types/movieTypes';
 
 type MovieCardProps = {
     movie: MovieType;
@@ -8,8 +8,8 @@ type MovieCardProps = {
 /**
  * MovieCard è un componente che deve ricevere tre dati:
  * -idMovie: number un numero che rappresenta l'id del film
- * -titleMovie: string il titolo del film
- * -description: string la descrizione del film
+ * -title: string il titolo del film
+ * -overview: string la descrizione del film
  * 
  * Le funzioni che rappresentano i componenti React in TypeScript ricevo un solo parametro, 
  * props, che è un oggetto che contiene tutte le proprietà passate al componente.
@@ -37,9 +37,9 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
     }
     return (
         <div onClick={handleClickCount} style={{ backgroundColor: '#dddddd' }}>
-            <h1>{movie.idMovie}</h1>
-            <p onClick={() => handleClick(movie.titleMovie)} style={{ border: '1px solid #aaaaaa' }}>{movie.titleMovie}</p>
-            <p onClick={() => handleClick(movie.description)} style={{ border: '1px solid #aaaaaa' }}>{movie.description}</p>
+            <h1>{movie.id}</h1>
+            <p onClick={() => handleClick(movie.title)} style={{ border: '1px solid #aaaaaa' }}>{movie.title}</p>
+            <p onClick={() => handleClick(movie.overview)} style={{ border: '1px solid #aaaaaa' }}>{movie.overview}</p>
             <p>Numero di click: {clickCount}</p>
         </div>
     )

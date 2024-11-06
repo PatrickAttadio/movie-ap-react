@@ -1,14 +1,22 @@
-import { MovieType } from "../types/movieTypes"
+import { MovieType } from "../types/MovieTypes"
 
-export const MovieCard = () => {
-    const movieMock: MovieType = {
-        id: 1,
-        title: 'Inception'
-    };
+export const MovieCard = (props: MovieType) => {
     return (
-        <>
-          <h1>{movieMock.title}</h1>
-          <p>{movieMock.id}</p>
-        </>
+        <div style={{ backgroundColor: '#dddddd' }}>
+            <table style={{ border: '2px solid black' }}>
+                <thead>
+                    <tr>
+                        <th style={{ border: '1px solid #aaaaaa' }}>Id</th>
+                        <th style={{ border: '1px solid #aaaaaa' }}>Titolo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style={{ border: '1px solid #aaaaaa' }}>{props.idMovie}</td>
+                        <td style={{ border: '1px solid #aaaaaa' }}>{props.titleMovie}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     )
 }

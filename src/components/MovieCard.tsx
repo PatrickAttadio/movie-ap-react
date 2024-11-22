@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { MovieType } from '../types/movieTypes';
 
 type MovieCardProps = {
@@ -17,30 +16,11 @@ type MovieCardProps = {
 
 export const MovieCard = ({ movie }: MovieCardProps) => {
 
-    // Se il valore della variabile deve essere visualizzato aggiornando la UI
-    // è necessario usare una variabile di stato.
-    // La varabile di stato è un array con due elementi e viene dichiarata con useState()
-    const [clickCount, setClickCount] = useState(0);
-    
-    const handleClickCount = () => {
-        // Una variabile di stato è 'immutabile', non può essere modificata direttamente 
-        // con un'istruzione di assegnazione come ad esempio clickCount = clickCount + 1;
-        // Per aggiornare il suo valore devo usare la funzione setClickCount (restituita da useState)
-        // passando il nuovo valore come parametro.
-        setClickCount(clickCount + 1); // setClickCount è asincrona
-        console.log(`Cliccato ${clickCount} volte`);
-    }
-
-    // Per convenzione usiamo il prefisso handle per le funzioni che gestiscono eventi
-    const handleClick = (message:string) => {
-        console.log(`Cliccato ${message}`);
-    }
-    return (
-        <div onClick={handleClickCount} style={{ backgroundColor: '#dddddd' }}>
+    return (    
+        <div style={{ backgroundColor: '#dddddd' }}>
             <h1>{movie.id}</h1>
-            <p onClick={() => handleClick(movie.title)} style={{ border: '1px solid #aaaaaa' }}>{movie.title}</p>
-            <p onClick={() => handleClick(movie.overview)} style={{ border: '1px solid #aaaaaa' }}>{movie.overview}</p>
-            <p>Numero di click: {clickCount}</p>
+            <p style={{ border: '1px solid #aaaaaa' }}>{movie.title}</p>
+            <p style={{ border: '1px solid #aaaaaa' }}>{movie.overview}</p>
         </div>
     )
 }

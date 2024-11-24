@@ -1,3 +1,5 @@
+// https://developer.themoviedb.org/reference/trending-movies
+
 export type MovieType = {
     backdrop_path: string;
     id: number;

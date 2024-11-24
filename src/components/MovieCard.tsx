@@ -1,26 +1,31 @@
 import { MovieType } from '../types/movieTypes';
+import { Button, Card, Image, Text, Flex } from "@chakra-ui/react"
 
 type MovieCardProps = {
     movie: MovieType;
 };
 
-/**
- * MovieCard è un componente che deve ricevere tre dati:
- * -idMovie: number un numero che rappresenta l'id del film
- * -title: string il titolo del film
- * -overview: string la descrizione del film
- * 
- * Le funzioni che rappresentano i componenti React in TypeScript ricevo un solo parametro, 
- * props, che è un oggetto che contiene tutte le proprietà passate al componente.
- */
-
 export const MovieCard = ({ movie }: MovieCardProps) => {
-
-    return (    
-        <div style={{ backgroundColor: '#dddddd' }}>
-            <h1>{movie.id}</h1>
-            <p style={{ border: '1px solid #aaaaaa' }}>{movie.title}</p>
-            <p style={{ border: '1px solid #aaaaaa' }}>{movie.overview}</p>
-        </div>
+    return (
+        <Card.Root className="movie-card" maxW="sm" overflow="hidden">
+            <Image
+                className="movie-card-image"
+                src={`https://media.themoviedb.org/t/p/w220_and_h330_face${movie.poster_path}`}
+                alt={movie.title}
+            />
+            <Card.Body className="movie-card-body" gap="2">
+                <Card.Title className="movie-card-title">{movie.title}</Card.Title>
+                <Text className="movie-card-description">
+                    {movie.overview}
+                </Text>
+                <Text textStyle="2xl" fontWeight="medium" letterSpacing="tight" mt="2">
+                    {movie.release_date}
+                </Text>
+            </Card.Body>
+            <Card.Footer className="movie-card-footer" gap="2">
+                <Button variant="solid">Details</Button>
+                <Button variant="ghost">Add to Favorites</Button>
+            </Card.Footer>
+        </Card.Root>
     )
 }

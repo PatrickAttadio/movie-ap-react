@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { MovieCard } from './components/MovieCard'
 import { getMovies } from './api/movies'
 import { MovieType } from './types/movieTypes'
-import { SimpleGrid } from '@chakra-ui/react'
+import { SimpleGrid, VStack, Heading, Button } from '@chakra-ui/react'
 
 function App() {
   const [movies, setMovies] = useState<MovieType[]>([]);
@@ -16,19 +16,27 @@ function App() {
     fetchMovie();
   },[]);
 
-  console.log("Sono nel componente App");
+  const open = () => {
+    console.log("Button clicked");
+  };
+
   return (
-    <>
-      <h1>Movie List</h1>
-      <SimpleGrid columns={{ base: 4, sm: 2, md: 3, lg: 4 }} gap={10}>
+    <VStack gap={10} maxW="100vw" p={10}>
       {
-        movies.length > 0 ? movies.map((movie) => {
-          return <MovieCard key={movie.id} movie={movie} /> 
-        })
-        : <h2>Caricamento in corso...</h2>
+      <>
+        <Button variant={'outline'} onClick={open}>Dettaglio</Button>
+        <Heading as={"h1"}>Trending</Heading>
+        <SimpleGrid columns={4} gap={5}>
+          {
+            movies.map((movie) => {
+              return <MovieCard key={movie.id} movie={movie} /> 
+            })
+          }
+        </SimpleGrid>
+        {/* <MovieDetail isOpen={open} onClose={onclose} /> */}
+      </>
       }
-      </SimpleGrid>
-    </>
+    </VStack>
   )
 }
 

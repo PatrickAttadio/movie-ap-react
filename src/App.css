@@ -14,13 +14,10 @@
   to { transform: rotate(360deg) }
 }
 
-
 /* MEDIAS */
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo { animation: logo-spin infinite 20s linear }
 }
-
-
 
 .movie-card {
   background-color: #ffe9e9;
@@ -43,13 +40,6 @@
   font-weight: bold;
   margin-bottom: 8px;
 }
-
-.movie-card-description {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 16px;
-}
-
 .movie-card-footer {
   display: flex;
   justify-content: space-between;

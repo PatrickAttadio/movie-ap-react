@@ -1,8 +1,8 @@
-import { MovieType } from './movieTypes';
+import { MovieType, TvType, PersonType } from "./elementTypes";
 
-export type ResponseTrendingType = {
+export type ResponseType = {
+    results: (MovieType | PersonType | TvType)[];
     page: number;
-    results: MovieType[];
     total_pages: number;
     total_results: number;
-}
+};

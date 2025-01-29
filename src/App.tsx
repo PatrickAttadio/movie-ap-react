@@ -1,22 +1,12 @@
-import { Box, Button, Heading, VStack, Flex, Container } from "@chakra-ui/react";
+import { Box, Button, Heading, VStack, Container } from "@chakra-ui/react";
 import "./App.css";
 import { CardContainer } from "./components/CardContainer";
-import logo from "../public/logo2.webp";
+import Header from "./components/Header";
 
 const App = () => {
   return (
     <Box bg="black" color="white" minH="100vh" p={6}>
-      
-      {/* Header */}
-      <Flex as="header" align="center" justify="flex-start" py={4} px={8} height="100px">
-        <img src={logo} alt="logo" className="App-logo" style={{ height: "100%" }} />
-        <Heading as="h1" size="xl" color="yellow.500" height="100%" ml={4}>DuneFlix</Heading>
-        <Flex gap={6} height="100%" ml="auto">
-          <Button variant="ghost" colorScheme="yellow" height="100%">Trending Movies</Button>
-          <Button variant="ghost" colorScheme="yellow" height="100%">Trending TVs</Button>
-          <Button variant="ghost" colorScheme="yellow" height="100%">Trending People</Button>
-        </Flex>
-      </Flex>
+      <Header/>
 
       {/* Hero Section */}
       <Container maxW="container.xl" centerContent>

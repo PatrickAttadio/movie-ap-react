@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../public/logo2.webp";
 import { Flex, Box, Heading } from "@chakra-ui/react";
-import SearchComponent from "./searchComponent";
+import SearchComponent from "./SearchComponent";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

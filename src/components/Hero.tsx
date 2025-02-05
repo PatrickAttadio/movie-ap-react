@@ -18,5 +18,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-// npm install react-slick slick-carousel

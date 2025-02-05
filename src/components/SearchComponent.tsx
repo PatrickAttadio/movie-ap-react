@@ -9,23 +9,25 @@ type SearchComponentProps = {
     display?: { base: string; md: string; lg:string };
 };
 const SearchComponent = ({display}: SearchComponentProps) => {
-    // eslint-disable-next-line prefer-const
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [searchQuery, setSearchQuery] = useState<string>("");
     const debouncedQuery = useDebounce((query: string) => {
         if (query.trim()) {
             navigate(`/search/${encodeURIComponent(query)}`);
+        } else {
+            navigate(`/`);
         }
     }, 1000);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(event.target.value);
-        debouncedQuery(event.target.value);
+        const query = event.target.value;
+        setSearchQuery(query);
+        debouncedQuery(query);
     };
 
     const handleBlur = () => {
-        setSearchQuery(""); // Inizializza l'input impostando lo stato a una stringa vuota
+        setSearchQuery("");
     };
 
     return (
@@ -40,6 +42,8 @@ const SearchComponent = ({display}: SearchComponentProps) => {
                 borderRadius={{base:"lg", md:"full"}}
                 type="search"
                 name="searchQuery"
+                bg="grey"
+                color="black"
                 value={searchQuery}
                 onChange={handleChange}
                 onBlur={handleBlur}

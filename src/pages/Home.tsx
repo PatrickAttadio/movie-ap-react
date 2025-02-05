@@ -1,13 +1,15 @@
 import "../App.css";
 import { Box } from "@chakra-ui/react";
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { CardCarousel } from "../components/CardCarousel";
-import { getMovies } from "../api/callAPI"; // Assuming you have an API function to get movies
+import { getMovies } from "../api/callAPI";
 
 const Home = () => {
+  const location = useLocation();
+
   return (
     <Box bg="black" color="white" minH="100vh" p={6}>
-      <CardCarousel getData={getMovies} />
+      {location.pathname === "/" && <CardCarousel getData={getMovies} />}
       <Outlet />
     </Box>
   );

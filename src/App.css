@@ -8,10 +8,9 @@ body { margin: 0; font-family: 'Arial', sans-serif; background-color: #60006a; c
 .card h3 { font-size: 1.2rem; margin: 1rem; color: #FFD700 }
 .card img { width: 100%; height: auto; border-bottom: 3px solid #FFD700 }
 .card p { font-size: 0.9rem; color: #E0E0E0; margin: 0 1rem 1rem }
+.css-9m5fos { min-height: 0vh!important }
 
-.carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding: 10px }
-.carousel::-webkit-scrollbar { display: none }
-.carousel > * { scroll-snap-align: start; flex: 0 0 auto }
+.slick-track > div { padding: 0 1rem }
 
 header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) }
 header h1 { font-size: 2rem; color: #FFD700; margin-left: 1rem }
@@ -32,7 +31,7 @@ li > a { font-size: 24px; color: #FFD700!important; padding: 1rem }
 .hero h2 { font-size: 1.5rem; color: #E0E0E0; margin-top: 1rem }
   
 @media screen and (max-width: 768px) {
-    header { flex-direction: column; align-items: flex-start }
+    header { flex-direction: column; align-items: flex-start; background-color: #000!important; }
     .menuToggleBtn { display: block }
     .nav-menu { display: none; flex-direction: column; align-items: center; width: 100%; margin-top: 5px }
     .nav-menu.open { display: block }

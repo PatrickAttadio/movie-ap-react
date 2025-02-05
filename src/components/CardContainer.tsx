@@ -1,27 +1,31 @@
-import { useEffect, useState } from "react"
-import { MovieType, TvType, PersonType } from "../types/elementTypes"
-import { getElement } from "../api/element"
-import { MyCard } from "./MyCard"
-import { SimpleGrid, Heading } from "@chakra-ui/react"
+import ContentCard from "./ContentCard";
+import { SimpleGrid } from "@chakra-ui/react";
+import { CardType } from "../types/cardType";
+import { useCards } from "../hooks/useCard";
+import { Link } from "react-router";
+import { useCallback } from "react";
 
 type CardContainerProps = {
-  url: string,
-  section: string
-}
+  getData: () => Promise<CardType[]>;
+};
 
-export const CardContainer = ({ url, section }: CardContainerProps) => {
-  const [element, setElement] = useState<(MovieType | TvType | PersonType)[]>([]);
+export const CardContainer = ({ getData }: CardContainerProps) => {
+  const data = useCallback(() => getData(), [getData]);
 
-  useEffect(() => {
-    const fetchElement = async () => setElement(await getElement(url));
-    fetchElement();
-  }, [url]);
+  const content = useCards(data);
 
   return (
     <>
-      <Heading textAlign="left" size="2xl" py={5} px={10}>{section}</Heading>
-      <SimpleGrid columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }} px={10} gap={5}>
-        {element.map((item) => <MyCard key={item.id} element={item} />)}
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }} gap={10}>
+        {content.length === 0 ? (
+          <p>Nessun risultato trovato</p>
+        ) : (
+          content.map((card) => (
+            <Link key={card.id} to={`/detail/${card.type}/${card.id}`}>
+              <ContentCard key={card.id} content={card} />
+            </Link>
+          ))
+        )}
       </SimpleGrid>
     </>
   );

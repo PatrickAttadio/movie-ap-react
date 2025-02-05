@@ -1,6 +1,7 @@
 import { Heading, Flex } from "@chakra-ui/react";
 import logo from "../../public/logo2.webp";
-import { Tabs } from "@chakra-ui/react"
+import { Tabs } from "@chakra-ui/react";
+import { Link } from "react-router";
 
 const Header = () => {
     return (
@@ -9,14 +10,17 @@ const Header = () => {
         <Heading as="h1" size="xl" color="yellow.500" height="100%" ml={4}>DuneFlix</Heading>
         <Flex gap={6} height="100%" ml="auto">
             <Tabs.Root defaultValue="movies">
-            <Tabs.List>
-                <Tabs.Trigger value="movies">Movies</Tabs.Trigger>
-                <Tabs.Trigger value="tvs">TVs</Tabs.Trigger>
-                <Tabs.Trigger value="people">People</Tabs.Trigger>
-            </Tabs.List>
-            <Tabs.Content value="movies">Manage your team members</Tabs.Content>
-            <Tabs.Content value="tvs">Manage your projects</Tabs.Content>
-            <Tabs.Content value="people">Manage your tasks for freelancers</Tabs.Content>
+                <Tabs.List>
+                    <Link to="/movies">
+                        <Tabs.Trigger value="movies">Movies</Tabs.Trigger>
+                    </Link>
+                    <Link to="/tv">
+                        <Tabs.Trigger value="tv">TVs</Tabs.Trigger>
+                    </Link>
+                    <Link to="/people">
+                        <Tabs.Trigger value="people">People</Tabs.Trigger>
+                    </Link>
+                </Tabs.List>
             </Tabs.Root>
         </Flex>
     </Flex>

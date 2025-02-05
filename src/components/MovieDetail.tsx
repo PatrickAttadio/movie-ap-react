@@ -25,34 +25,34 @@ const MovieDetail = () => {
   };
 
   return (
-    <DialogRoot size="full" motionPreset="slide-in-bottom" lazyMount={true} open >
-      <DialogContent p={4}>
-        <DialogHeader>
-          <DialogTitle fontSize="2xl" fontWeight="bold" textAlign="center" mb={4}>
-            {title}
-          </DialogTitle>
-        </DialogHeader>
-        <DialogBody>
-          <Flex direction={{ base: "column", md: "row" }} gap={6} align="center" justify="space-between">
-            <Box flex="1" display="flex" justifyContent="center" alignItems="center" maxW={{ base: "100%", md: "40%" }}>
-              <Image src={image} alt={title} borderRadius="lg" boxShadow="lg" objectFit="cover" maxW="100%" maxH="450px" />
-            </Box>
-            <Box flex="2">
-              <VStack align="stretch">
-                <Heading size="xl" fontWeight="bold">
-                  Details
-                </Heading>
-                <Text fontSize="lg">
-                  {contentType === "person" ? (<><strong>Name:</strong> {title}</>) : (<><strong>title:</strong> {title}</>)}
-                </Text>
-                <Text fontSize="lg">
-                  {description ? (<><strong>Description:</strong> {description}</>) : null}
-                </Text>
-              </VStack>
-            </Box>
-          </Flex>
-        </DialogBody>
-        <DialogCloseTrigger onClick={handleClose} />
+    <DialogRoot size="full" motionPreset="slide-in-bottom" lazyMount={true} open>
+      <DialogContent p={4} bg="#60006a" color="white">
+      <DialogHeader>
+      <DialogTitle fontSize="2xl" fontWeight="bold" textAlign="center" mb={4} color="yellow">
+      {title}
+      </DialogTitle>
+      </DialogHeader>
+      <DialogBody>
+      <Flex direction={{ base: "column", md: "row" }} gap={6} align="center" justify="space-between">
+      <Box flex="1" display="flex" justifyContent="center" alignItems="center" maxW={{ base: "100%", md: "40%" }}>
+        <Image src={image} alt={title} borderRadius="lg" boxShadow="lg" objectFit="cover" maxW="100%" maxH="450px" />
+      </Box>
+      <Box flex="2">
+        <VStack align="stretch">
+        <Heading size="xl" fontWeight="bold" color="yellow">
+        Details
+        </Heading>
+        <Text fontSize="lg">
+        {contentType === "person" ? (<><strong>Name:</strong> {title}</>) : (<><strong>Title:</strong> {title}</>)}
+        </Text>
+        <Text fontSize="lg">
+        {description ? (<><strong>Description:</strong> {description}</>) : null}
+        </Text>
+        </VStack>
+      </Box>
+      </Flex>
+      </DialogBody>
+      <DialogCloseTrigger onClick={handleClose} />
       </DialogContent>
     </DialogRoot>
   );

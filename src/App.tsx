@@ -11,7 +11,9 @@ const App = () => {
   return (
     <>
       <Header/>
-      <Hero/><Routes>
+      <Hero/>
+      
+      <Routes>
         <Route path="/" element={<Home/>}>
           <Route path="movies" element={<CardContainer getData={getMovies} />} />
           <Route path="people" element={<CardContainer getData={getPeople} />} />

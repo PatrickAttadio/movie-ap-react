@@ -5,8 +5,7 @@ import { Route, Routes } from "react-router";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import MovieDetail from "./components/MovieDetail";
-// import { getCarouselImages, getMovies, getPeople, getSearchResults, getTv } from "@/api/callAPI";
-import { getMovies, getPeople, getTv } from "./api/callAPI";
+import { getMovies, getPeople, getSearchResults, getTv } from "./api/callAPI";
 
 const App = () => {
   return (
@@ -18,7 +17,7 @@ const App = () => {
           <Route path="people" element={<CardContainer getData={getPeople} />} />
           <Route path="tv" element={<CardContainer getData={getTv} />} />
           
-          {/* <Route path="search/:searchQuery?" element={<CardContainer getData={getSearchResults} />} /> */}
+          <Route path="search/:searchQuery?" element={<CardContainer getData={getSearchResults} />} />
 
           <Route path="detail/:contentType/:contentId" element={<MovieDetail />} />
         </Route>

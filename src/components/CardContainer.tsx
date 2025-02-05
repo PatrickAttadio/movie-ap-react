@@ -2,15 +2,18 @@ import ContentCard from "./ContentCard";
 import { SimpleGrid } from "@chakra-ui/react";
 import { CardType } from "../types/cardType";
 import { useCards } from "../hooks/useCard";
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import { useCallback } from "react";
 
 type CardContainerProps = {
-  getData: () => Promise<CardType[]>;
+  getData: (searchQuery?: string) => Promise<CardType[]>;
 };
 
+
 export const CardContainer = ({ getData }: CardContainerProps) => {
-  const data = useCallback(() => getData(), [getData]);
+  const { searchQuery } = useParams<{ searchQuery?: string }>();
+
+  const data = useCallback(() => getData(searchQuery), [getData, searchQuery]);
 
   const content = useCards(data);
 

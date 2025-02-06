@@ -4,7 +4,7 @@ import { LuSearch } from "react-icons/lu";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { useDebounce } from "../hooks/useDobounce";
-
+ 
 type SearchComponentProps = {
     display?: { base: string; md: string; lg:string };
 };

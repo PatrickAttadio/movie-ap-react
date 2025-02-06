@@ -9,7 +9,6 @@ type CardContainerProps = {
   getData: (searchQuery?: string) => Promise<CardType[]>;
 };
 
-
 export const CardContainer = ({ getData }: CardContainerProps) => {
   const { searchQuery } = useParams<{ searchQuery?: string }>();
 

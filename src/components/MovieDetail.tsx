@@ -9,7 +9,6 @@ type ContentType = MovieType | PersonType | TvType;
 
 const defaultImage = import.meta.env.VITE_DEFAULT_IMAGE;
 
-
 const MovieDetail = () => {
 
   const { contentType, contentId } = useParams();

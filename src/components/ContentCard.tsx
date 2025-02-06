@@ -7,8 +7,10 @@ type ContentCardProps = {
     content: CardType;
 };
 
+const defaultImage = import.meta.env.VITE_DEFAULT_IMAGE;
+
 const ContentCard = ({ content }: ContentCardProps) => {
-    const image = imageUrl(content.image);
+    const image = content.image ? imageUrl(content.image) : defaultImage;
 
     return (
         <Card.Root maxW="sm" overflow="hidden" rounded="xl" border="none" bg="transparent" position="relative">

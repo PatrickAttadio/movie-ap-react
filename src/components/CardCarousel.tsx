@@ -26,7 +26,7 @@ export const CardCarousel = ({ getData }: CardCarouselProps) => {
     slidesToShow: 7,
     slidesToScroll: 2,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     beforeChange: () => setIsDragging(true),
     afterChange: () => setIsDragging(false),
     responsive: [

@@ -2,7 +2,6 @@
 import { apiUrl } from "./utils.ts";
 import { CardType } from "@/types/cardType.ts";
 import { MovieType, TvType, PersonType } from "@/types/tmdbTypes.ts";
-import logo from "../../public/logo2.webp";
 
 const callAPI = async (endpoint: string, query?: string): Promise<any[]> => {
     try {
@@ -27,7 +26,7 @@ export const getMovies = async (): Promise<CardType[]> => {
         const movies: MovieType[] = await callAPI("/trending/movie");
         return movies.map(movie => ({
             id: movie.id,
-            image: movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : logo,
+            image: movie.poster_path,
             title: movie.title,
             type: "movie"
         }));
@@ -42,7 +41,7 @@ export const getPeople = async (): Promise<CardType[]> => {
         const people: PersonType[] = await callAPI("/trending/person");
         return people.map(person => ({
             id: person.id,
-            image: person.profile_path ? `https://image.tmdb.org/t/p/w500${person.profile_path}` : logo,
+            image: person.profile_path,
             title: person.name,
             type: "person"
         }));
@@ -57,7 +56,7 @@ export const getTv = async (): Promise<CardType[]> => {
         const tvShows: TvType[] = await callAPI("/trending/tv");
         return tvShows.map(tv => ({
             id: tv.id,
-            image: tv.poster_path ? `https://image.tmdb.org/t/p/w500${tv.poster_path}` : logo,
+            image: tv.poster_path,
             title: tv.name,
             type: "tv"
         }));
@@ -74,7 +73,7 @@ export const getCarouselImages = async (): Promise<string[]> => {
         const baseUrl = "https://image.tmdb.org/t/p/";
         const size = "w1280";
 
-        return images.map(image => `${baseUrl}${size}${image.backdrop_path ? image.backdrop_path : logo}`);
+        return images.map(image => `${baseUrl}${size}${image.backdrop_path}`);
     } catch (error: any) {
         console.error("Error fetching carousel images:", error.message);
         return [];
@@ -94,13 +93,13 @@ export const getSearchResults = async (searchQuery?: string): Promise<CardType[]
         return searchResults.map(result => {
             switch (result.media_type) {
                 case "movie":
-                    return { id: result.id, image: result.poster_path ? `https://image.tmdb.org/t/p/w500${result.poster_path}` : logo, title: result.title, type: "movie" };
+                    return { id: result.id, image: result.poster_path, title: result.title, type: "movie" };
                 case "tv":
-                    return { id: result.id, image: result.poster_path ? `https://image.tmdb.org/t/p/w500${result.poster_path}` : logo, title: result.name, type: "tv" };
+                    return { id: result.id, image: result.poster_path, title: result.name, type: "tv" };
                 case "person":
-                    return { id: result.id, image: result.profile_path ? `https://image.tmdb.org/t/p/w500${result.profile_path}` : logo, title: result.name, type: "person" };
+                    return { id: result.id, image: result.profile_path, title: result.name, type: "person" };
                 default:
-                    return { id: result.id, image: logo, title: result.name || result.title, type: "unknown" };
+                    return { id: result.id, image: null, title: result.name || result.title, type: "unknown" };
             }
         });
     } catch (error: any) {

@@ -1,11 +1,8 @@
 const api_key = "9fb4f823233d65edde18832955f31106"
 const baseUrl = "https://api.themoviedb.org/3"
 const imageBaseUrl = "https://image.tmdb.org/t/p/w500"
-
-// Array di risorse consentite
+// IMMAGINE DI DEFAULT SE NON TROVO L'IMMAGINE
 const validApiUrlResources = [ "/trending/movie", "/trending/tv", "/trending/person", "/search/multi" ];
-
-// const validDetailUrlResources = [ "/movie", "/tv", "/person" ];
 
 export const apiUrl = (apiResource: string, query?: string): string => {
     if (!validApiUrlResources.includes(apiResource)) {

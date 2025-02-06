@@ -9,14 +9,11 @@ const callAPI = async (endpoint: string, query?: string): Promise<any[]> => {
 
         const response = await fetch(url);
 
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
         const data = await response.json();
         return data.results;
     } catch (error: any) {
         console.error(`Error calling API at ${endpoint}:`, error.message);
+        // Ritorno qualcosa all'utilizzatore per segnalare l'errore
         return [];
     }
 };
@@ -107,3 +104,4 @@ export const getSearchResults = async (searchQuery?: string): Promise<CardType[]
         return [];
     }
 };
+

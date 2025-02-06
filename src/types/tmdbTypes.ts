@@ -1,3 +1,5 @@
+// NEI DETTAGLI MANCANO DEI DATI
+
 export type MovieType = {
     poster_path: string;
     adult: boolean;
@@ -10,7 +12,7 @@ export type MovieType = {
     title: string;
     backdrop_path: string;
     popularity: number;
-    vote_count: number;
+    vote_count: number; 
     video: boolean;
     vote_average: number;
 }

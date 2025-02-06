@@ -1,8 +1,8 @@
 import ContentCard from "./ContentCard";
 import { CardType } from "../types/cardType";
 import { useCards } from "../hooks/useCard";
-import { Link, useParams } from "react-router";
-import { useCallback, useState } from "react";
+import { Link } from "react-router";
+import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,12 +12,9 @@ type CardCarouselProps = {
 };
 
 export const CardCarousel = ({ getData }: CardCarouselProps) => {
-  const { searchQuery } = useParams<{ searchQuery?: string }>();
   const [isDragging, setIsDragging] = useState(false);
 
-  const fetchData = useCallback(() => getData(searchQuery), [getData, searchQuery]);
-
-  const content = useCards(fetchData);
+  const content = useCards(getData);
 
   const settings = {
     dots: true,

@@ -1,6 +1,6 @@
-const api_key = import.meta.env.VITE_API_KEY;
-const baseUrl = import.meta.env.VITE_BASE_URL;
-const imageBaseUrl = import.meta.env.VITE_IMAGE_BASE_URL;
+const api_key = "9fb4f823233d65edde18832955f31106"
+const baseUrl = "https://api.themoviedb.org/3"
+const imageBaseUrl = "https://image.tmdb.org/t/p/w500"
 
 // Array di risorse consentite
 const validApiUrlResources = [ "/trending/movie", "/trending/tv", "/trending/person", "/search/multi" ];

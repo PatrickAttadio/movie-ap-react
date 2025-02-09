@@ -2,6 +2,7 @@
 import { apiUrl } from "./utils.ts";
 import { CardType } from "@/types/cardType.ts";
 import { MovieType, TvType, PersonType } from "@/types/tmdbTypes.ts";
+import { ErrorPage } from "../components/ErrorPage.tsx";
 
 const callAPI = async (endpoint: string, query?: string): Promise<any[]> => {
     try {
@@ -13,8 +14,9 @@ const callAPI = async (endpoint: string, query?: string): Promise<any[]> => {
         return data.results;
     } catch (error: any) {
         console.error(`Error calling API at ${endpoint}:`, error.message);
-        // Ritorno qualcosa all'utilizzatore per segnalare l'errore
+        // Ritorno la pagina di errore
         return [];
+        // return <ErrorPage />;
     }
 };
 
@@ -30,6 +32,7 @@ export const getMovies = async (): Promise<CardType[]> => {
     } catch (error: any) {
         console.error("Error fetching movies:", error.message);
         return [];
+        // return <ErrorPage />;
     }
 };
 
@@ -45,6 +48,7 @@ export const getPeople = async (): Promise<CardType[]> => {
     } catch (error: any) {
         console.error("Error fetching people:", error.message);
         return [];
+        // return <ErrorPage />;
     }
 };
 
@@ -60,6 +64,7 @@ export const getTv = async (): Promise<CardType[]> => {
     } catch (error: any) {
         console.error("Error fetching TV shows:", error.message);
         return [];
+        // return <ErrorPage />;
     }
 };
 
@@ -74,6 +79,7 @@ export const getCarouselImages = async (): Promise<string[]> => {
     } catch (error: any) {
         console.error("Error fetching carousel images:", error.message);
         return [];
+        // return <ErrorPage />;
     }
 };
 

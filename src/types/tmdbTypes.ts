@@ -1,5 +1,3 @@
-// NEI DETTAGLI MANCANO DEI DATI
-
 export type MovieType = {
     poster_path: string;
     adult: boolean;

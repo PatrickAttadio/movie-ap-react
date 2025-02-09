@@ -29,3 +29,5 @@ const App = () => {
 };
 
 export default App;
+
+// GESTIONE IMMAGINI CHE MANCANO, I RETURN ERROR PAGE E REACT QUERY DENTRO GLI HOOKS
